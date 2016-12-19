@@ -1,0 +1,16 @@
+{
+    "name": "entity-master-tool-frontend",
+    "description": "",
+    "version": "0.0.0",
+    "homepage": "",
+    "license": "MIT",
+    "dependencies": {
+        "angular": "^1.5.x",
+        "angular-animate": "^1.5.x",
+        "angular-mocks": "^1.5.x",
+        "angular-resource": "^1.5.x",
+        "angular-route": "^1.5.x",
+        "angular-material": "^1.1.x",
+        "jquery": "^2.2.x"
+    }
+}
