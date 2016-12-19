@@ -10,8 +10,34 @@
     <link rel="stylesheet" href="app.css" />
 </head>
 
-<body layout="row">
-    <div layout="column" flex role="main" ng-view>
+<body layout="em-body row">
+    <md-sidenav md-component-id="left" class="site-sidenav md-sidenav-left md-whiteframe-z2" hide-print md-is-locked-open="{{true}}">
+        <header class="nav-header">
+            <a href="/" ng-href="/" class="em-logo">
+                <img src="image/logo.png" alt width="150">
+                <h1 class="em-logotype md-heading">
+                    Entity Master Tools
+                </h1>
+            </a>
+        </header>
+    </md-sidenav>
+    <div layout="column" flex role="main">
+        <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
+            <div class="md-toolbar-tools em-toolbar-tools">
+                <!-- TODO menu button -->
+                <div layout="row" flex class="fill-height">
+                    <h2 class="md-toolbar-item md-breadcrumb md-headline">
+                        <span class="md-breadcrumb-page ng-binding">Page Name</span>
+                    </h2>
+                    <span flex></span>
+                    <div class="md-toolbar-item em-tools" layout="row">
+                        <md-button class="md-raised md-primary">logoff</md-button>
+                    </div>
+                </div>
+            </div>
+        </md-toolbar>
+        <md-content md-scroll-y layout="column" flex ng-view>
+        </md-content>
     </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
