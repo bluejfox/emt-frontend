@@ -18,10 +18,16 @@ _emt.factory('SessionService', function(){
         return _userInfo;
     }
 
+    function clear() {
+        _token = null;
+        _userInfo = null;
+    }
+
     return {
         'setUserInfo': setUserInfo,
         'getUserInfo': getUserInfo,
         'setToken': setToken,
-        'getToken': getToken
+        'getToken': getToken,
+        'clear': clear
     };
 });

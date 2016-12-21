@@ -33,7 +33,8 @@
                     </h2>
                     <span flex></span>
                     <div class="md-toolbar-item em-tools" layout="row">
-                        <md-button class="md-raised md-primary">注销</md-button>
+                        <span>{{emtCtrl.uid}}</span>
+                        <md-button class="md-raised md-primary" ng-click="emtCtrl.logOff()">注销</md-button>
                     </div>
                 </div>
             </div>
