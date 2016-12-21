@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="emt">
+<html lang="en" ng-app="emt" ng-controller="EMTController as emtCtrl">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 </head>
 
 <body layout="em-body row">
-    <md-sidenav md-component-id="left" class="site-sidenav md-sidenav-left md-whiteframe-z2" hide-print md-is-locked-open="{{true}}">
+    <md-sidenav md-component-id="left" class="site-sidenav md-sidenav-left md-whiteframe-z2" hide-print md-is-locked-open="$mdMedia('gt-sm')" ng-if="emtCtrl.isLogOn">
         <header class="nav-header">
             <a href="/" ng-href="/" class="em-logo">
                 <img src="image/logo.png" alt width="150">
@@ -22,16 +22,18 @@
         </header>
     </md-sidenav>
     <div layout="column" flex role="main">
-        <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
+        <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar" ng-if="emtCtrl.isLogOn">
             <div class="md-toolbar-tools em-toolbar-tools">
-                <!-- TODO menu button -->
+                <md-button class="md-icon-button md-primary" hide-gt-sm ng-click="emtCtrl.openMenu()" aria-label="Toggle Menu">
+                    <md-icon md-svg-icon="image/icon/ic_menu_black_24px.svg"></md-icon>
+                </md-button>
                 <div layout="row" flex class="fill-height">
                     <h2 class="md-toolbar-item md-breadcrumb md-headline">
-                        <span class="md-breadcrumb-page ng-binding">Page Name</span>
+                        <span class="md-breadcrumb-page ng-binding" ng-bind="emtCtrl.pageName"></span>
                     </h2>
                     <span flex></span>
                     <div class="md-toolbar-item em-tools" layout="row">
-                        <md-button class="md-raised md-primary">logoff</md-button>
+                        <md-button class="md-raised md-primary">注销</md-button>
                     </div>
                 </div>
             </div>
@@ -48,6 +50,13 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
+
+    <!-- <script src="common/component/titlebar/titlebar.component.js"></script> -->
+    <script src="common/controller/emt.controller.js"></script>
+    <script src="common/interceptor/session.interceptor.js"></script>
+    <script src="common/service/spi.service.js"></script>
+    <script src="common/service/auth.service.js"></script>
+    <script src="common/service/session.service.js"></script>
 
     <script src="login/login.component.js"></script>
 </body>

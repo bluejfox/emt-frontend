@@ -1,5 +1,12 @@
-_emt.config(['$mdThemingProvider', '$locationProvider', '$routeProvider',
-    function($mdThemingProvider, $locationProvider, $routeProvider) {
+_emt.config(['$provide', '$mdThemingProvider', '$locationProvider', '$httpProvider', '$routeProvider',
+    function($provide, $mdThemingProvider, $locationProvider, $httpProvider, $routeProvider) {
+        // constant
+        $provide.constant('SPI_SERVICE_FLAG', '_SPI_SERVICE');
+
+        // http
+        var interceptors = $httpProvider.interceptors;
+        interceptors.push('SessionInterceptor');
+
         // theme
         $mdThemingProvider.theme('default')
             .primaryPalette('blue', {
@@ -8,12 +15,17 @@ _emt.config(['$mdThemingProvider', '$locationProvider', '$routeProvider',
             .accentPalette('pink')
             .warnPalette('red')
             .backgroundPalette('grey');
+
         // route
         $locationProvider.hashPrefix('!');
-
         $routeProvider.
         when('/login', {
-            "template": '<emt-login flex layout="column"></emt-login>'
+            'title': '登录',
+            'template': '<emt-login flex layout="column"></emt-login>'
+        }).
+        when('/dashboard', {
+            'title': '首页',
+            'template': ''
         }).
         otherwise({
             redirectTo: '/login'
