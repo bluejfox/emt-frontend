@@ -8,19 +8,27 @@
                     <span style="font-weight: 600;">登录</span>
                 </md-toolbar>
                 <md-content style="padding: 1em;">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>用户名</label>
-                        <input ng-model="$ctrl.username" required>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>密码</label>
-                        <input ng-model="$ctrl.password" type="password" required>
-                    </md-input-container>
-                    <div layout="row" layout-align="center center">
-                        <div layout="row" layout-sm="column" layout-margin>
-                            <md-button class="md-raised md-primary" ng-click="$ctrl.login()">登录</md-button>
+                    <form name="loginForm" ng-submit="$ctrl.login()">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>用户名</label>
+                            <input ng-model="$ctrl.username" name="username" required>
+                            <div ng-messages="loginForm.username.$error">
+                                <div ng-message="required">请输入用户名</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>密码</label>
+                            <input ng-model="$ctrl.password" type="password" name="password" required>
+                            <div ng-messages="loginForm.password.$error">
+                                <div ng-message="required">请输入密码</div>
+                            </div>
+                        </md-input-container>
+                        <div layout="row" layout-align="center center">
+                            <div layout="row" layout-sm="column" layout-margin>
+                                <md-button class="md-raised md-primary" type="submit">登录</md-button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </md-content>
             </md-whiteframe>
         </div>

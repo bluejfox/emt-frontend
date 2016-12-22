@@ -20,6 +20,23 @@
                 </h1>
             </a>
         </header>
+        <md-content role="navigation" flex>
+            <ul class="emt-menu">
+                <li ng-repeat="section in emtCtrl.menu.sections" class="parent-list-item {{section.className || ''}}" ng-class="{'parentActive' : isSectionSelected(section)}">
+                    <h2 class="menu-heading md-subhead" ng-if="section.type === 'heading'" id="heading_{{ section.name | nospace }}">
+                      {{section.name}}
+                    </h2>
+                    <menu-link section="section" ng-if="section.type === 'link' && !section.hidden"></menu-link>
+                    <menu-toggle section="section" ng-if="section.type === 'toggle' && !section.hidden"></menu-toggle>
+                    <ul ng-if="section.children" class="menu-nested-list">
+                        <li ng-repeat="child in section.children" ng-class="{'childActive' : isSectionSelected(child)}">
+                            <menu-link section="child" ng-if="child.type === 'link'"></menu-link>
+                            <menu-toggle section="child" ng-if="child.type === 'toggle'"></menu-toggle>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </md-content>
     </md-sidenav>
     <div layout="column" flex role="main">
         <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar" ng-if="emtCtrl.isLogOn">
@@ -51,14 +68,16 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
-
     <!-- <script src="common/component/titlebar/titlebar.component.js"></script> -->
     <script src="common/controller/emt.controller.js"></script>
+    <script src="common/directive/menu-link/menu-link.directive.js"></script>
+    <script src="common/directive/menu-toggle/menu-toggle.directive.js"></script>
+    <script src="common/filter/emt.filter.js"></script>
     <script src="common/interceptor/session.interceptor.js"></script>
-    <script src="common/service/spi.service.js"></script>
     <script src="common/service/auth.service.js"></script>
+    <script src="common/service/menu.service.js"></script>
     <script src="common/service/session.service.js"></script>
-
+    <script src="common/service/spi.service.js"></script>
     <script src="login/login.component.js"></script>
 </body>
 

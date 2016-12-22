@@ -1,5 +1,5 @@
-_emt.config(['$provide', '$mdThemingProvider', '$locationProvider', '$httpProvider', '$routeProvider',
-    function($provide, $mdThemingProvider, $locationProvider, $httpProvider, $routeProvider) {
+_emt.config(['$provide', '$mdIconProvider', '$mdThemingProvider', '$locationProvider', '$httpProvider', '$routeProvider',
+    function($provide, $mdIconProvider, $mdThemingProvider, $locationProvider, $httpProvider, $routeProvider) {
         // constant
         $provide.constant('SPI_SERVICE_FLAG', '_SPI_SERVICE');
 
@@ -13,6 +13,9 @@ _emt.config(['$provide', '$mdThemingProvider', '$locationProvider', '$httpProvid
             .accentPalette('brown')
             .warnPalette('red')
             .backgroundPalette('grey');
+
+        // icon
+        $mdIconProvider.icon('md-toggle-arrow', 'image/icon/toggle-arrow.svg', 48);
 
         // route
         $locationProvider.hashPrefix('!');
