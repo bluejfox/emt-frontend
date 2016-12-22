@@ -120,3 +120,26 @@ a.em-logo {
 .login-container {
     height: 100%;
 }
+
+.login-ribbon {
+    width: 100%;
+    height: 40vh;
+    background-color: rgb(188,170,164) !important;
+}
+
+.login-main {
+    margin-top: -35vh;
+    height: 100%;
+}
+
+.login-system-title {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #fff !important;
+    font-size: 3em;
+    margin-bottom: 5vh;
+}
+
+.login-form {
+    /*margin: auto;*/
+}

@@ -8,11 +8,9 @@ _emt.config(['$provide', '$mdThemingProvider', '$locationProvider', '$httpProvid
         interceptors.push('SessionInterceptor');
 
         // theme
-        $mdThemingProvider.theme('default')
-            .primaryPalette('blue', {
-                'default': '800'
-            })
-            .accentPalette('pink')
+        $mdThemingProvider.theme('forest')
+            .primaryPalette('indigo')
+            .accentPalette('brown')
             .warnPalette('red')
             .backgroundPalette('grey');
 

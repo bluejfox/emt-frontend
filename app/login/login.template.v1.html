@@ -1,0 +1,24 @@
+<md-content layout="vertical" flex id="content">
+    <div layout="row" layout-align="center center" layout-fill>
+        <md-whiteframe class="md-whiteframe-9dp" layout="column" flex="30" >
+            <md-toolbar layout="row" class="md-toolbar-tools" layout-align="center center">
+                <span style="font-weight: 600;">登录</span>
+            </md-toolbar>
+            <md-content style="padding: 1em;">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>用户名</label>
+                    <input ng-model="$ctrl.username" required>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>密码</label>
+                    <input ng-model="$ctrl.password" type="password" required>
+                </md-input-container>
+                <div layout="row" layout-align="center center">
+                    <div layout="row" layout-sm="column" layout-margin>
+                        <md-button class="md-raised md-primary" ng-click="$ctrl.login()">登录</md-button>
+                    </div>
+                </div>
+            </md-content>
+        </md-whiteframe>
+    </div>
+</md-content>
